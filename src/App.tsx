@@ -1,4 +1,5 @@
 import './App.css'
+import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa'
 
 function App() {
   return (
@@ -60,9 +61,15 @@ function App() {
         <section className="section links">
           <h2>Links</h2>
           <div className="link-list">
-            <a href="https://github.com/justinli34" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/justinlibc" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://www.youtube.com/@justinli34" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://github.com/justinli34" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <FaGithub />
+            </a>
+            <a href="https://www.linkedin.com/in/justinlibc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <FaLinkedin />
+            </a>
+            <a href="https://www.youtube.com/@justinli34" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <FaYoutube />
+            </a>
           </div>
         </section>
       </main>
