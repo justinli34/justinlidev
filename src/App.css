@@ -134,8 +134,4 @@
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
-
-  .icosahedron-wrapper {
-    display: none;
-  }
 }

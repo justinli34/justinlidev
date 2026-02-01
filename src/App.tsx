@@ -1,12 +1,8 @@
 import './App.css'
-import Icosahedron from './Icosahedron'
 
 function App() {
   return (
     <div className="container">
-      <div className="icosahedron-wrapper">
-        <Icosahedron />
-      </div>
       <header className="header">
         <h1>Justin Li</h1>
       </header>
