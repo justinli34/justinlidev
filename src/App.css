@@ -125,9 +125,14 @@
   }
 
   .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    width: 100%;
+    min-width: 0;
     gap: 2rem;
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
   .icosahedron-wrapper {
