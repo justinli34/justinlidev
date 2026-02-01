@@ -1,3 +1,10 @@
+:root {
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #aaa;
+  --color-text-muted: #888;
+  --color-text-dim: #666;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -20,7 +27,7 @@
   font-weight: 600;
   margin: 0;
   letter-spacing: -0.02em;
-  color: #e0e0e0;
+  color: var(--color-text-primary);
 }
 
 .grid {
@@ -45,7 +52,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #666;
+  color: var(--color-text-dim);
   margin: 0;
   text-align: left;
   flex-shrink: 0;
@@ -53,7 +60,7 @@
 
 .section p {
   margin: 0;
-  color: #aaa;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
   text-align: left;
@@ -84,17 +91,19 @@
 }
 
 .role, .project-name {
-  color: #e0e0e0;
+  color: var(--color-text-primary);
   font-size: 0.95rem;
 }
 
+.company, .experience-desc, .project-desc {
+  color: var(--color-text-dim);
+}
+
 .company {
-  color: #666;
   font-size: 0.95rem;
 }
 
 .experience-desc, .project-desc {
-  color: #666;
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -106,14 +115,14 @@
 }
 
 .link-list a {
-  color: #888;
+  color: var(--color-text-muted);
   font-size: 0.95rem;
   transition: color 0.2s ease;
   width: fit-content;
 }
 
 .link-list a:hover {
-  color: #e0e0e0;
+  color: var(--color-text-primary);
 }
 
 @media (max-width: 768px) {
