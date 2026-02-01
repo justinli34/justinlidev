@@ -1,11 +1,24 @@
+import { useState } from 'react'
 import './App.css'
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa'
+import { useAudioAnalyzer } from './hooks/useAudioAnalyzer'
+import { WaveformVisualizer } from './components/WaveformVisualizer'
 
 function App() {
+  const { isPlaying, togglePlay, analyzerRef } = useAudioAnalyzer()
+  const [hasInteracted, setHasInteracted] = useState(false)
+
+  const handleToggle = () => {
+    setHasInteracted(true)
+    togglePlay()
+  }
+
   return (
     <div className="container">
       <header className="header">
-        <h1>Justin Li</h1>
+        <h1>
+          Justin Li
+        </h1>
       </header>
 
       <main className="grid">
@@ -73,6 +86,14 @@ function App() {
           </div>
         </section>
       </main>
+
+      <WaveformVisualizer
+        analyzerRef={analyzerRef}
+        isPlaying={isPlaying}
+        baselineOffset={65}
+        hasInteracted={hasInteracted}
+        onClick={handleToggle}
+      />
     </div>
   )
 }

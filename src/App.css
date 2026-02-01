@@ -3,6 +3,9 @@
   --color-text-secondary: #aaa;
   --color-text-muted: #888;
   --color-text-dim: #666;
+
+  --waveform-color: var(--color-text-dim);
+  --waveform-height: 160px;
 }
 
 .container {
@@ -28,6 +31,10 @@
   margin: 0;
   letter-spacing: -0.02em;
   color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .grid {
@@ -125,7 +132,25 @@
   color: var(--color-text-primary);
 }
 
+.waveform-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--waveform-height);
+  cursor: pointer;
+}
+
+.waveform-canvas {
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 768px) {
+  .waveform-container {
+    display: none;
+  }
+
   .container {
     padding: 1.5rem;
     height: auto;
