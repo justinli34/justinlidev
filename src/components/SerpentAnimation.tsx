@@ -10,6 +10,9 @@ export default function SerpentAnimation() {
     if (!canvas || !container) return
 
     const ctx = canvas.getContext('2d');
+    const styles = getComputedStyle(document.documentElement);
+    const bgColor = styles.getPropertyValue('--color-bg').trim();
+    const dotsColor = styles.getPropertyValue('--color-serpent-dots').trim();
 
     const updateCanvasSize = () => {
       const rect = container.getBoundingClientRect();
@@ -32,10 +35,10 @@ export default function SerpentAnimation() {
 
       const scale = canvas.width / 400;
 
-      ctx.fillStyle = '#0a0a0a';
+      ctx.fillStyle = bgColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.38)';
+      ctx.fillStyle = dotsColor;
 
       for (let i = 0; i < NUM_POINTS; i++) {
         const xBase = i;
@@ -73,7 +76,7 @@ export default function SerpentAnimation() {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ width: '750px', height: '750px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+    <div ref={containerRef} className="serpent-container">
       <canvas ref={canvasRef} />
     </div>
   );
