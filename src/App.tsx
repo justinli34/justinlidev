@@ -1,27 +1,19 @@
-import { useState } from 'react'
 import './App.css'
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa'
-import { useAudioAnalyzer } from './hooks/useAudioAnalyzer'
-import { WaveformVisualizer } from './components/WaveformVisualizer'
+import SerpentAnimation from './components/SerpentAnimation'
 
 function App() {
-  const { isPlaying, togglePlay, analyzerRef } = useAudioAnalyzer()
-  const [hasInteracted, setHasInteracted] = useState(false)
-
-  const handleToggle = () => {
-    setHasInteracted(true)
-    togglePlay()
-  }
-
   return (
     <div className="container">
-      <header className="header">
-        <h1>
-          Justin Li
-        </h1>
-      </header>
+      <div className="main-layout">
+        <div className="content-side">
+          <header className="header">
+            <h1>
+              Justin Li
+            </h1>
+          </header>
 
-      <main className="grid">
+          <main className="grid">
         <section className="section about">
           <h2>About</h2>
           <p>
@@ -85,19 +77,13 @@ function App() {
             </a>
           </div>
         </section>
-      </main>
+          </main>
+        </div>
 
-      <WaveformVisualizer
-        analyzerRef={analyzerRef}
-        isPlaying={isPlaying}
-        baselineOffset={65}
-        hasInteracted={hasInteracted}
-        onClick={handleToggle}
-      />
-
-      <footer className="footer">
-        Last updated Feb 1, 2026
-      </footer>
+        <div className="animation-side">
+          <SerpentAnimation />
+        </div>
+      </div>
     </div>
   )
 }
