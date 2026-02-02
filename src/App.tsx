@@ -90,7 +90,7 @@ function App() {
       <WaveformVisualizer
         analyzerRef={analyzerRef}
         isPlaying={isPlaying}
-        baselineOffset={70}
+        baselineOffset={65}
         hasInteracted={hasInteracted}
         onClick={handleToggle}
       />
