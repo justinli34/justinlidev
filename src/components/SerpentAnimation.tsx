@@ -17,8 +17,15 @@ export default function SerpentAnimation() {
     const updateCanvasSize = () => {
       const rect = container.getBoundingClientRect();
       const size = Math.min(rect.width, rect.height);
-      canvas.width = size;
-      canvas.height = size;
+      const dpr = window.devicePixelRatio || 1;
+      
+      // Set the canvas internal resolution to match device pixels
+      canvas.width = size * dpr;
+      canvas.height = size * dpr;
+      
+      // Keep the display size the same via CSS
+      canvas.style.width = `${size}px`;
+      canvas.style.height = `${size}px`;
     };
 
     updateCanvasSize();
