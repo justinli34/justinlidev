@@ -283,6 +283,10 @@ body {
     display: none;
   }
 
+  .content-side {
+    margin-left: 0rem;
+  }
+
   .container {
     padding: 1.5rem;
     height: auto;
