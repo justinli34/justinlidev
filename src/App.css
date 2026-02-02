@@ -71,11 +71,12 @@ body {
 
 .animation-side {
   width: 400px;
-  height: 750px;
+  height: 600px;
   flex-shrink: 0;
   overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .serpent-container {
