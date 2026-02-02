@@ -94,6 +94,10 @@ function App() {
         hasInteracted={hasInteracted}
         onClick={handleToggle}
       />
+
+      <footer className="footer">
+        Last updated Feb 1, 2026
+      </footer>
     </div>
   )
 }

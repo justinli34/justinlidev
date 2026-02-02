@@ -147,6 +147,16 @@
   height: 100%;
 }
 
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: 0.8rem;
+}
+
 @media (max-width: 768px) {
   .waveform-container {
     display: none;
