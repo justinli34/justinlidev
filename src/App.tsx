@@ -3,9 +3,11 @@ import './App.css'
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa'
 import { FiInfo } from 'react-icons/fi'
 import SerpentAnimation from './components/SerpentAnimation'
+import { useMediaQuery } from './hooks/useMediaQuery'
 
 function App() {
   const [infoFlipped, setInfoFlipped] = useState(false)
+  const isMobile = useMediaQuery('(max-width: 1000px)')
   return (
     <div className="container">
       <div className="main-layout">
@@ -84,7 +86,7 @@ function App() {
         </div>
 
         <div className="animation-side">
-          <SerpentAnimation />
+          {!isMobile && <SerpentAnimation />}
         </div>
       </div>
 
