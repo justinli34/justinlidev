@@ -34,21 +34,23 @@ function App() {
                     <span className="role">Software Engineer Intern</span>
                     <span className="company">@ Ciena</span>
                   </div>
-                  <span className="experience-desc">Built AI agents for network management</span>
+                  <span className="experience-desc">Developed AI agents to automate network management</span>
                 </li>
                 <li>
                   <div className="role-line">
                     <span className="role">Founding Software Engineer</span>
                     <span className="company">@ Silk Road Strategies</span>
                   </div>
-                  <span className="experience-desc">Created a stock trading strategy backtesting app</span>
+                  <span className="experience-desc">
+                    Built a full-stack platform for backtesting trading strategies
+                  </span>
                 </li>
                 <li>
                   <div className="role-line">
                     <span className="role">Debate Coach</span>
                     <span className="company">@ Vancouver Debate Academy</span>
                   </div>
-                  <span className="experience-desc">Coached students in debate and public speaking</span>
+                  <span className="experience-desc">Coached high school students in competitive speech and debate</span>
                 </li>
               </ul>
             </section>
