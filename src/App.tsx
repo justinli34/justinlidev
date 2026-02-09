@@ -1,5 +1,6 @@
-import { useState } from "react";
 import "./App.css";
+import "./index.css";
+import { useState } from "react";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FiInfo } from "react-icons/fi";
 import Animation from "./components/Animation";
