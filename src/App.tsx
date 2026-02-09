@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FiInfo } from "react-icons/fi";
-import SerpentAnimation from "./components/SerpentAnimation";
+import Animation from "./components/Animation";
 import useMediaQuery from "./hooks/useMediaQuery";
 
 function App() {
@@ -93,7 +93,7 @@ function App() {
           </main>
         </div>
 
-        <div className="animation-side">{!isMobile && <SerpentAnimation />}</div>
+        <div className="animation-side">{!isMobile && <Animation />}</div>
       </div>
 
       <div className={`info-card ${infoFlipped ? "expanded" : ""}`} onClick={() => setInfoFlipped(!infoFlipped)}>
