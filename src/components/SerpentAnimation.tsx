@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 // Configurable dispersion effect parameters
 const HIT_RADIUS = 25; // Pixels - how close cursor must be to knock a dot loose
@@ -9,30 +9,30 @@ const SPRING_STRENGTH = 0.008; // Pull back toward origin (0-1, higher = snappie
 const TANGENTIAL_RATIO = 0.8; // Swirl vs radial direction of impulse
 
 export default function SerpentAnimation() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const mousePosRef = useRef<{ x: number; y: number } | null>(null)
-  const particlesRef = useRef<Map<number, { dx: number; dy: number; vx: number; vy: number }>>(new Map())
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mousePosRef = useRef<{ x: number; y: number } | null>(null);
+  const particlesRef = useRef<Map<number, { dx: number; dy: number; vx: number; vy: number }>>(new Map());
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
-    if (!canvas || !container) return
+    if (!canvas || !container) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     const styles = getComputedStyle(document.documentElement);
-    const bgColor = styles.getPropertyValue('--color-bg').trim();
-    const dotsColor = styles.getPropertyValue('--color-serpent-dots').trim();
+    const bgColor = styles.getPropertyValue("--color-bg").trim();
+    const dotsColor = styles.getPropertyValue("--color-serpent-dots").trim();
 
     const updateCanvasSize = () => {
       const rect = container.getBoundingClientRect();
       const size = Math.min(rect.width, rect.height);
       const dpr = window.devicePixelRatio || 1;
-      
+
       // Set the canvas internal resolution to match device pixels
       canvas.width = size * dpr;
       canvas.height = size * dpr;
-      
+
       // Keep the display size the same via CSS
       canvas.style.width = `${size}px`;
       canvas.style.height = `${size}px`;
@@ -60,12 +60,12 @@ export default function SerpentAnimation() {
       mousePosRef.current = null;
     };
 
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseleave", handleMouseLeave);
 
     function draw() {
-      if (!canvas) return
-      if (!ctx) return
+      if (!canvas) return;
+      if (!ctx) return;
 
       const scale = canvas.width / 400;
 
@@ -81,7 +81,7 @@ export default function SerpentAnimation() {
         const wavePhase = 4 + Math.sin(yBase * 2 - t) * 3;
         const k = wavePhase * Math.cos(xBase / 29);
         const e = yBase / 8 - 13;
-        
+
         const d = Math.sqrt(k * k + e * e);
 
         const term1 = 2 * Math.sin(k * 2);
@@ -108,17 +108,17 @@ export default function SerpentAnimation() {
             // Random chance to get displaced
             const seed = Math.sin(i * 12.9898 + t * 78.233) * 43758.5453;
             const rand = seed - Math.floor(seed);
-            
+
             if (rand < HIT_CHANCE) {
               // Calculate impulse direction (radial + tangential for chaos)
-              const radialDx = (dx / dist);
-              const radialDy = (dy / dist);
-              
+              const radialDx = dx / dist;
+              const radialDy = dy / dist;
+
               // Tangent direction with per-dot variation
               const tangentSign = (i % 2 === 0 ? 1 : -1) * (1 + Math.sin(i * 0.1) * 0.5);
               const tangentialDx = (-dy / dist) * TANGENTIAL_RATIO * tangentSign;
               const tangentialDy = (dx / dist) * TANGENTIAL_RATIO * tangentSign;
-              
+
               // Set initial velocity (not displacement)
               const impulse = IMPULSE_STRENGTH * scale * (0.5 + rand);
               particles.set(i, {
@@ -134,23 +134,23 @@ export default function SerpentAnimation() {
         // Apply physics to displaced particles
         if (particles.has(i)) {
           const p = particles.get(i)!;
-          
+
           // Apply velocity to displacement
           p.dx += p.vx;
           p.dy += p.vy;
-          
+
           // Apply friction to velocity
           p.vx *= FRICTION;
           p.vy *= FRICTION;
-          
+
           // Apply spring force pulling back to origin
           p.vx -= p.dx * SPRING_STRENGTH;
           p.vy -= p.dy * SPRING_STRENGTH;
-          
+
           // Apply displacement to position
           sx += p.dx;
           sy += p.dy;
-          
+
           // Remove if nearly stopped and back at origin
           const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
           const dist = Math.sqrt(p.dx * p.dx + p.dy * p.dy);
@@ -171,8 +171,8 @@ export default function SerpentAnimation() {
     return () => {
       cancelAnimationFrame(animationId);
       resizeObserver.disconnect();
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseLeave);
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 

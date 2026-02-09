@@ -9,7 +9,7 @@
   --color-info-card-bg: rgba(255, 255, 255, 0.08);
   --color-info-card-bg-hover: rgba(255, 255, 255, 0.12);
 
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: var(--color-text-primary);
@@ -167,12 +167,15 @@ body {
   align-items: baseline;
 }
 
-.role, .project-name {
+.role,
+.project-name {
   color: var(--color-text-primary);
   font-size: 0.95rem;
 }
 
-.company, .experience-desc, .project-desc {
+.company,
+.experience-desc,
+.project-desc {
   color: var(--color-text-dim);
 }
 
@@ -180,7 +183,8 @@ body {
   font-size: 0.95rem;
 }
 
-.experience-desc, .project-desc {
+.experience-desc,
+.project-desc {
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -279,7 +283,8 @@ body {
 
 /* Responsive */
 @media (max-width: 1000px) {
-  .animation-side, .info-card {
+  .animation-side,
+  .info-card {
     display: none;
   }
 
