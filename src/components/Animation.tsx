@@ -1,14 +1,89 @@
 import { useEffect, useRef } from "react";
 
+const NUM_POINTS = 10000;
 const HIT_RADIUS = 25;
 const HIT_CHANCE = 1;
 const IMPULSE_STRENGTH = 5;
 const FRICTION = 0.6;
 const SPRING_STRENGTH = 0.008;
 const TANGENTIAL_RATIO = 0.8;
-const NUM_POINTS = 10000;
 
 type Particle = { dx: number; dy: number; vx: number; vy: number };
+
+function calculateBasePosition(i: number, t: number, scale: number) {
+  const xBase = i;
+  const yBase = i / 235;
+  const wavePhase = 4 + Math.sin(yBase * 2 - t) * 3;
+  const k = wavePhase * Math.cos(xBase / 29);
+  const e = yBase / 8 - 13;
+  const d = Math.sqrt(k * k + e * e);
+  const q = 2 * Math.sin(k * 2) + Math.sin(yBase / 25) * k * (5 + 2 * Math.sin(e * 9 - d * 3 + t * 2));
+  const angle = d - t;
+
+  return {
+    x: (q + 30 * Math.cos(angle) + 200) * scale,
+    y: (q * Math.sin(angle) + d * 39 - 220) * scale,
+  };
+}
+
+function handleMouseInteraction(
+  i: number,
+  baseX: number,
+  baseY: number,
+  mousePos: { x: number; y: number } | null,
+  particles: Map<number, Particle>,
+  radius: number,
+  scale: number,
+  t: number,
+): void {
+  if (!mousePos || particles.has(i)) return;
+
+  const dx = baseX - mousePos.x;
+  const dy = baseY - mousePos.y;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+
+  if (dist < radius && dist > 0) {
+    const seed = Math.sin(i * 12.9898 + t * 78.233) * 43758.5453;
+    const rand = seed - Math.floor(seed);
+
+    if (rand < HIT_CHANCE) {
+      const radialDx = dx / dist;
+      const radialDy = dy / dist;
+      const tangentSign = (i % 2 === 0 ? 1 : -1) * (1 + Math.sin(i * 0.1) * 0.5);
+      const tangentialDx = (-dy / dist) * TANGENTIAL_RATIO * tangentSign;
+      const tangentialDy = (dx / dist) * TANGENTIAL_RATIO * tangentSign;
+      const impulse = IMPULSE_STRENGTH * scale * (0.5 + rand);
+
+      particles.set(i, {
+        dx: 0,
+        dy: 0,
+        vx: (radialDx + tangentialDx) * impulse,
+        vy: (radialDy + tangentialDy) * impulse,
+      });
+    }
+  }
+}
+
+function updateParticlePhysics(particle: Particle, particles: Map<number, Particle>, i: number): Particle | undefined {
+  particle.dx += particle.vx;
+  particle.dy += particle.vy;
+
+  particle.vx *= FRICTION;
+  particle.vy *= FRICTION;
+
+  particle.vx -= particle.dx * SPRING_STRENGTH;
+  particle.vy -= particle.dy * SPRING_STRENGTH;
+
+  const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
+  const dist = Math.sqrt(particle.dx * particle.dx + particle.dy * particle.dy);
+
+  if (speed < 0.1 && dist < 0.5) {
+    particles.delete(i);
+    return undefined;
+  }
+
+  return particle;
+}
 
 export default function Animation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -81,71 +156,23 @@ export default function Animation() {
       ctx.fillStyle = dotsColor;
 
       for (let i = 0; i < NUM_POINTS; i++) {
-        const xBase = i;
-        const yBase = i / 235;
-        const wavePhase = 4 + Math.sin(yBase * 2 - t) * 3;
-        const k = wavePhase * Math.cos(xBase / 29);
-        const e = yBase / 8 - 13;
-        const d = Math.sqrt(k * k + e * e);
-        const q = 2 * Math.sin(k * 2) + Math.sin(yBase / 25) * k * (5 + 2 * Math.sin(e * 9 - d * 3 + t * 2));
-        const angle = d - t;
+        const base = calculateBasePosition(i, t, scale);
+        let x = base.x;
+        let y = base.y;
 
-        let sx = (q + 30 * Math.cos(angle) + 200) * scale;
-        let sy = (q * Math.sin(angle) + d * 39 - 220) * scale;
+        handleMouseInteraction(i, x, y, mousePos, particles, radius, scale, t);
 
         let particle = particles.get(i);
 
-        if (mousePos && !particle) {
-          const dx = sx - mousePos.x;
-          const dy = sy - mousePos.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < radius && dist > 0) {
-            const seed = Math.sin(i * 12.9898 + t * 78.233) * 43758.5453;
-            const rand = seed - Math.floor(seed);
-
-            if (rand < HIT_CHANCE) {
-              const radialDx = dx / dist;
-              const radialDy = dy / dist;
-              const tangentSign = (i % 2 === 0 ? 1 : -1) * (1 + Math.sin(i * 0.1) * 0.5);
-              const tangentialDx = (-dy / dist) * TANGENTIAL_RATIO * tangentSign;
-              const tangentialDy = (dx / dist) * TANGENTIAL_RATIO * tangentSign;
-              const impulse = IMPULSE_STRENGTH * scale * (0.5 + rand);
-
-              particle = {
-                dx: 0,
-                dy: 0,
-                vx: (radialDx + tangentialDx) * impulse,
-                vy: (radialDy + tangentialDy) * impulse,
-              };
-
-              particles.set(i, particle);
-            }
-          }
-        }
-
         if (particle) {
-          particle.dx += particle.vx;
-          particle.dy += particle.vy;
-
-          particle.vx *= FRICTION;
-          particle.vy *= FRICTION;
-
-          particle.vx -= particle.dx * SPRING_STRENGTH;
-          particle.vy -= particle.dy * SPRING_STRENGTH;
-
-          sx += particle.dx;
-          sy += particle.dy;
-
-          const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
-          const dist = Math.sqrt(particle.dx * particle.dx + particle.dy * particle.dy);
-
-          if (speed < 0.1 && dist < 0.5) {
-            particles.delete(i);
-          }
+          particle = updateParticlePhysics(particle, particles, i);
+        }
+        if (particle) {
+          x += particle.dx;
+          y += particle.dy;
         }
 
-        ctx.fillRect(sx, sy, 1, 1);
+        ctx.fillRect(x, y, 1, 1);
       }
 
       t += Math.PI / 480;
