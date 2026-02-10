@@ -21,8 +21,10 @@ function App() {
             <section className="section about">
               <h2>About</h2>
               <p>
-                I'm a software developer and computer science student at the University of British Columbia. I enjoy
-                creating cool things.
+                I'm a 3rd year computer science student at the University of British Columbia. I'm currently interested
+                in building audio software and AI infrastructure. In my free time, I like to play tennis and produce
+                music (check out my YouTube channel). Feel free to message me on LinkedIn if you want to chat about
+                anything!
               </p>
             </section>
 
@@ -31,6 +33,11 @@ function App() {
               <ul>
                 <li>
                   <div className="role-line">
+                    <span className="role">Software Development Engineer Intern</span>
+                    <span className="company">@ Amazon</span>
+                  </div>
+                  <span className="experience-desc">Incoming Summer 2026</span>
+                  <div className="role-line">
                     <span className="role">Software Engineer Intern</span>
                     <span className="company">@ Ciena</span>
                   </div>
@@ -38,7 +45,7 @@ function App() {
                 </li>
                 <li>
                   <div className="role-line">
-                    <span className="role">Founding Software Engineer</span>
+                    <span className="role">Co-Founder</span>
                     <span className="company">@ Silk Road Strategies</span>
                   </div>
                   <span className="experience-desc">
@@ -54,21 +61,6 @@ function App() {
                 </li>
               </ul>
             </section>
-
-            <section className="section projects">
-              <h2>Projects</h2>
-              <ul>
-                <li>
-                  <span className="project-name">Frost Reverb</span>
-                  <span className="project-desc">Shimmer reverb audio effect plugin for Mac and Windows</span>
-                </li>
-                <li>
-                  <span className="project-name">Pairs Trading Bot</span>
-                  <span className="project-desc">Trading bot trained with deep reinforcement learning</span>
-                </li>
-              </ul>
-            </section>
-
             <section className="section links">
               <h2>Links</h2>
               <div className="link-list">
