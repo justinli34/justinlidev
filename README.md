@@ -9,7 +9,7 @@ Check it out: [justinli.dev](https://justinli.dev)
 Clone the repository:
 
 ```bash
-git clone https://github.com/justinli/justinlidev.git
+git clone https://github.com/justinli34/justinlidev.git
 cd justinlidev
 ```
 
