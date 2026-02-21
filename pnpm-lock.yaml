@@ -30,9 +30,6 @@ importers:
       '@vitejs/plugin-react-swc':
         specifier: ^4.2.2
         version: 4.2.2(vite@7.3.1(@types/node@24.10.9))
-      globals:
-        specifier: ^16.5.0
-        version: 16.5.0
       oxfmt:
         specifier: ^0.28.0
         version: 0.28.0
@@ -529,10 +526,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  globals@16.5.0:
-    resolution: {integrity: sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ==}
-    engines: {node: '>=18'}
-
   nanoid@3.3.11:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -962,8 +955,6 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
-
-  globals@16.5.0: {}
 
   nanoid@3.3.11: {}
 

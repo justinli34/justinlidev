@@ -10,7 +10,8 @@
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "tsc --noEmit && oxlint && oxfmt --check"
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -22,7 +23,6 @@
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
-    "globals": "^16.5.0",
     "oxfmt": "^0.28.0",
     "oxlint": "^1.43.0",
     "typescript": "~5.9.3",
