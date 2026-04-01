@@ -17,7 +17,8 @@ function calculateBasePosition(i: number, t: number, scale: number) {
   const k = wavePhase * Math.cos(xBase / 29);
   const e = yBase / 8 - 13;
   const d = Math.sqrt(k * k + e * e);
-  const q = 2 * Math.sin(k * 2) + Math.sin(yBase / 25) * k * (5 + 2 * Math.sin(e * 9 - d * 3 + t * 2));
+  const q =
+    2 * Math.sin(k * 2) + Math.sin(yBase / 25) * k * (5 + 2 * Math.sin(e * 9 - d * 3 + t * 2));
   const angle = d - t;
 
   return {
@@ -64,7 +65,11 @@ function handleMouseInteraction(
   }
 }
 
-function updateParticlePhysics(particle: Particle, particles: Map<number, Particle>, i: number): Particle | undefined {
+function updateParticlePhysics(
+  particle: Particle,
+  particles: Map<number, Particle>,
+  i: number,
+): Particle | undefined {
   particle.dx += particle.vx;
   particle.dy += particle.vy;
 

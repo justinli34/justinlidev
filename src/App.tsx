@@ -21,10 +21,10 @@ function App() {
             <section className="section about">
               <h2>About</h2>
               <p>
-                I'm a 3rd year computer science student at the University of British Columbia. I'm currently interested
-                in building audio software and AI infrastructure. In my free time, I like to play tennis and produce
-                music (check out my YouTube channel). Feel free to message me on LinkedIn if you want to chat about
-                anything!
+                I'm a 3rd year computer science student at the University of British Columbia. I'm
+                currently interested in building audio software and AI infrastructure. In my free
+                time, I like to play tennis and produce music (check out my YouTube channel). Feel
+                free to message me on LinkedIn if you want to chat about anything!
               </p>
             </section>
 
@@ -41,7 +41,9 @@ function App() {
                     <span className="role">Software Engineer Intern</span>
                     <span className="company">@ Ciena</span>
                   </div>
-                  <span className="experience-desc">Developed AI agents to automate network management</span>
+                  <span className="experience-desc">
+                    Developed AI agents to automate network management
+                  </span>
                 </li>
                 <li>
                   <div className="role-line">
@@ -57,14 +59,21 @@ function App() {
                     <span className="role">Debate Coach</span>
                     <span className="company">@ Vancouver Debate Academy</span>
                   </div>
-                  <span className="experience-desc">Coached high school students in competitive speech and debate</span>
+                  <span className="experience-desc">
+                    Coached high school students in competitive speech and debate
+                  </span>
                 </li>
               </ul>
             </section>
             <section className="section links">
               <h2>Links</h2>
               <div className="link-list">
-                <a href="https://github.com/justinli34" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a
+                  href="https://github.com/justinli34"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
                   <FaGithub />
                 </a>
                 <a
@@ -91,7 +100,10 @@ function App() {
         <div className="animation-side">{!isMobile && <Animation />}</div>
       </div>
 
-      <div className={`info-card ${infoFlipped ? "expanded" : ""}`} onClick={() => setInfoFlipped(!infoFlipped)}>
+      <div
+        className={`info-card ${infoFlipped ? "expanded" : ""}`}
+        onClick={() => setInfoFlipped(!infoFlipped)}
+      >
         <FiInfo className="info-icon" />
         <div className="info-content">
           <p className="info-title">Last Updated</p>
