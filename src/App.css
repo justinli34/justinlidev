@@ -6,16 +6,13 @@
   align-items: center;
   justify-content: center;
   padding: 2rem 4rem;
-  box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .main-layout {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 0rem;
 }
 
 .content-side {
@@ -83,7 +80,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-text-dim);
+  color: var(--color-text-muted);
   margin: 0;
   text-align: left;
   flex-shrink: 0;
@@ -95,7 +92,6 @@
   font-size: 0.95rem;
   line-height: 1.6;
   text-align: left;
-  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
@@ -121,24 +117,21 @@
   align-items: baseline;
 }
 
-.role,
-.project-name {
-  color: var(--color-text-primary);
+.role {
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
 }
 
 .company,
-.experience-desc,
-.project-desc {
-  color: var(--color-text-dim);
+.experience-desc {
+  color: var(--color-text-muted);
 }
 
 .company {
   font-size: 0.95rem;
 }
 
-.experience-desc,
-.project-desc {
+.experience-desc {
   font-size: 0.85rem;
   line-height: 1.5;
 }

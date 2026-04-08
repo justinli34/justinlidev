@@ -15,7 +15,7 @@ function App() {
           </header>
 
           <main className="grid">
-            <section className="section about">
+            <section className="section">
               <h2>About</h2>
               <p>
                 I'm a 3rd year computer science student at the University of British Columbia. I'm
@@ -25,7 +25,7 @@ function App() {
               </p>
             </section>
 
-            <section className="section experience">
+            <section className="section">
               <h2>Experience</h2>
               <ul>
                 <li>
@@ -62,7 +62,7 @@ function App() {
                 </li>
               </ul>
             </section>
-            <section className="section links">
+            <section className="section">
               <h2>Links</h2>
               <div className="link-list">
                 <a
