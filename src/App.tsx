@@ -1,13 +1,10 @@
 import "./App.css";
 import "./index.css";
-import { useState } from "react";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
-import { FiInfo } from "react-icons/fi";
 import Animation from "./components/Animation";
 import useMediaQuery from "./hooks/useMediaQuery";
 
 function App() {
-  const [infoFlipped, setInfoFlipped] = useState(false);
   const isMobile = useMediaQuery("(max-width: 1000px)");
   return (
     <div className="container">
@@ -98,19 +95,6 @@ function App() {
         </div>
 
         <div className="animation-side">{!isMobile && <Animation />}</div>
-      </div>
-
-      <div
-        className={`info-card ${infoFlipped ? "expanded" : ""}`}
-        onClick={() => setInfoFlipped(!infoFlipped)}
-      >
-        <FiInfo className="info-icon" />
-        <div className="info-content">
-          <p className="info-title">Last Updated</p>
-          <p className="info-text">February 2026</p>
-          <p className="info-title">Animation Credits</p>
-          <p className="info-text">@yuruyurau on X</p>
-        </div>
       </div>
     </div>
   );
