@@ -2,7 +2,27 @@ import "./App.css";
 import "./index.css";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Animation from "./components/Animation";
+import ExperienceCard from "./components/ExperienceCard";
+import experienceStyles from "./components/ExperienceCard.module.css";
 import useMediaQuery from "./hooks/useMediaQuery";
+
+const experiences = [
+  {
+    role: "Software Development Engineer Intern",
+    company: "Amazon",
+    description: "Incoming intern.",
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Ciena",
+    description: "Developed AI agents to automate network management.",
+  },
+  {
+    role: "Debate Coach",
+    company: "Vancouver Debate Academy",
+    description: "Coached high school students in competitive speech and debate.",
+  },
+] as const;
 
 function App() {
   const isMobile = useMediaQuery("(max-width: 1000px)");
@@ -27,40 +47,14 @@ function App() {
 
             <section className="section">
               <h2>Experience</h2>
-              <ul>
-                <li>
-                  <div className="role-line">
-                    <span className="role">Software Development Engineer Intern</span>
-                    <span className="company">@ Amazon</span>
-                  </div>
-                  <span className="experience-desc">Incoming Summer 2026</span>
-                  <div className="role-line">
-                    <span className="role">Software Engineer Intern</span>
-                    <span className="company">@ Ciena</span>
-                  </div>
-                  <span className="experience-desc">
-                    Developed AI agents to automate network management
-                  </span>
-                </li>
-                <li>
-                  <div className="role-line">
-                    <span className="role">Co-Founder</span>
-                    <span className="company">@ Silk Road Strategies</span>
-                  </div>
-                  <span className="experience-desc">
-                    Built a full-stack platform for backtesting trading strategies
-                  </span>
-                </li>
-                <li>
-                  <div className="role-line">
-                    <span className="role">Debate Coach</span>
-                    <span className="company">@ Vancouver Debate Academy</span>
-                  </div>
-                  <span className="experience-desc">
-                    Coached high school students in competitive speech and debate
-                  </span>
-                </li>
-              </ul>
+              <div className={experienceStyles.list}>
+                {experiences.map((experience) => (
+                  <ExperienceCard
+                    key={`${experience.company}-${experience.role}`}
+                    {...experience}
+                  />
+                ))}
+              </div>
             </section>
             <section className="section">
               <h2>Links</h2>
