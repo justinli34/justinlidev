@@ -62,7 +62,7 @@
 
 .about p {
   color: var(--color-text-secondary);
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .experienceList {
