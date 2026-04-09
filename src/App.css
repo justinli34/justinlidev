@@ -19,7 +19,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 5rem;
 }
 
 .animation-side {
@@ -41,20 +40,12 @@
   flex-shrink: 0;
 }
 
-.header {
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
 .header h1 {
+  margin-bottom: 1rem;
+  text-align: left;
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
   color: var(--color-text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.75rem;
 }
 
 .grid {
@@ -68,8 +59,7 @@
 
 .section {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 2rem;
+  gap: 1rem;
   align-items: start;
   width: 100%;
 }
@@ -111,10 +101,6 @@
     display: none;
   }
 
-  .content-side {
-    margin-left: 0rem;
-  }
-
   .container {
     padding: 1.5rem;
     height: auto;
@@ -134,7 +120,6 @@
   }
 
   .section {
-    grid-template-columns: 1fr;
     gap: 0.5rem;
   }
 }

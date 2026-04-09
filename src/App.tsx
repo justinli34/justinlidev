@@ -36,7 +36,6 @@ function App() {
 
           <main className="grid">
             <section className="section about">
-              <h2>About</h2>
               <p>
                 Welcome to my website! I'm currently studying computer science at the University of
                 British Columbia. My technical interests lie in AI and decentralized systems. In my
