@@ -25,7 +25,7 @@ const experiences = [
 ] as const;
 
 function App() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 1000px)");
   return (
     <div className="container">
       <div className="content-side">
