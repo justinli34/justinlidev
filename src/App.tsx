@@ -35,7 +35,7 @@ function App() {
           </header>
 
           <main className="grid">
-            <section className="section">
+            <section className="section about">
               <h2>About</h2>
               <p>
                 I'm a 3rd year computer science student at the University of British Columbia. I'm

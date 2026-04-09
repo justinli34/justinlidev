@@ -75,7 +75,7 @@
 }
 
 .section h2 {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -84,11 +84,8 @@
   flex-shrink: 0;
 }
 
-.section p {
+.about p {
   color: var(--color-text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  text-align: left;
   overflow-wrap: break-word;
 }
 
