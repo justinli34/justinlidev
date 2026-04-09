@@ -10,17 +10,17 @@ const experiences = [
   {
     role: "Software Development Engineer Intern",
     company: "Amazon",
-    description: "Incoming intern.",
+    description: "Incoming Summer 2026",
   },
   {
     role: "Software Engineer Intern",
     company: "Ciena",
-    description: "Developed AI agents to automate network management.",
+    description: "Built AI agents to automate network management",
   },
   {
     role: "Debate Coach",
     company: "Vancouver Debate Academy",
-    description: "Coached high school students in competitive speech and debate.",
+    description: "Coached high school students in competitive debate classes",
   },
 ] as const;
 
@@ -38,10 +38,10 @@ function App() {
             <section className="section about">
               <h2>About</h2>
               <p>
-                I'm a 3rd year computer science student at the University of British Columbia. I'm
-                currently interested in building audio software and AI infrastructure. In my free
-                time, I like to play tennis and produce music (check out my YouTube channel). Feel
-                free to message me on LinkedIn if you want to chat about anything!
+                Welcome to my website! I'm currently studying computer science at the University of
+                British Columbia. My technical interests lie in AI and decentralized systems. In my
+                free time, I like to produce music, play tennis, and invest in stocks. Feel free to
+                message me on LinkedIn!
               </p>
             </section>
 
