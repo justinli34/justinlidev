@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import styles from "./Animation.module.css";
 
 const NUM_POINTS = 10000;
 const HIT_RADIUS = 25;
@@ -195,7 +196,7 @@ export default function Animation() {
   }, []);
 
   return (
-    <div ref={containerRef} className="animation-container">
+    <div ref={containerRef} className={styles.container}>
       <canvas ref={canvasRef} />
     </div>
   );

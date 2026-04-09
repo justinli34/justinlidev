@@ -8,10 +8,6 @@
   color: var(--color-text-muted);
 }
 
-.updated {
-  color: inherit;
-}
-
 .links {
   display: flex;
   align-items: center;

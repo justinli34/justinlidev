@@ -9,7 +9,6 @@ const links = [
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <p className={styles.updated}>Last updated April 2026</p>
       <nav aria-label="Social links">
         <ul className={styles.links}>
           {links.map((link) => (

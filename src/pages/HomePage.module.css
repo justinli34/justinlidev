@@ -13,7 +13,7 @@
   padding: 1.5rem 4rem;
 }
 
-.content-side {
+.contentSide {
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@
   min-width: 0;
 }
 
-.animation-side {
+.animationSide {
   grid-column: 2;
   align-self: center;
   width: 300px;
@@ -30,15 +30,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.animation-container {
-  width: 750px;
-  height: 750px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
 }
 
 .header h1 {
@@ -79,7 +70,7 @@
 }
 
 @media (max-width: 1000px) {
-  .animation-side {
+  .animationSide {
     display: none;
   }
 
@@ -89,7 +80,7 @@
     max-width: 600px;
   }
 
-  .content-side {
+  .contentSide {
     width: 100%;
   }
 
@@ -100,4 +91,15 @@
   .section {
     gap: 0.5rem;
   }
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.blogList {
+  display: flex;
+  flex-direction: column;
 }
