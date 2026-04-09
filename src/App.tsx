@@ -1,8 +1,8 @@
 import "./App.css";
 import "./index.css";
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Animation from "./components/Animation";
 import ExperienceCard from "./components/ExperienceCard";
+import Footer from "./components/Footer";
 import experienceStyles from "./components/ExperienceCard.module.css";
 import useMediaQuery from "./hooks/useMediaQuery";
 
@@ -51,40 +51,12 @@ function App() {
               ))}
             </div>
           </section>
-
-          <section className="section">
-            <h2>Links</h2>
-            <div className="link-list">
-              <a
-                href="https://github.com/justinli34"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/justinlibc"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://www.youtube.com/@justinli34"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-              >
-                <FaYoutube />
-              </a>
-            </div>
-          </section>
         </main>
       </div>
 
       <div className="animation-side">{!isMobile && <Animation />}</div>
+
+      <Footer />
     </div>
   );
 }
