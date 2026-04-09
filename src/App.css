@@ -26,7 +26,6 @@
   align-self: center;
   width: 300px;
   height: 600px;
-  flex-shrink: 0;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -85,17 +84,13 @@
   }
 
   .container {
-    display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) auto;
-    row-gap: 2rem;
     padding: 1.5rem;
     max-width: 600px;
   }
 
   .content-side {
     width: 100%;
-    min-width: 0;
   }
 
   .grid {
