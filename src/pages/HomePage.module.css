@@ -65,6 +65,17 @@
   text-wrap: balance;
 }
 
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.blogList {
+  display: flex;
+  flex-direction: column;
+}
+
 .container > footer {
   grid-column: 1 / -1;
 }
@@ -91,15 +102,4 @@
   .section {
     gap: 0.5rem;
   }
-}
-
-.experienceList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.blogList {
-  display: flex;
-  flex-direction: column;
 }
