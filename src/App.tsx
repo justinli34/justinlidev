@@ -25,70 +25,66 @@ const experiences = [
 ] as const;
 
 function App() {
-  const isMobile = useMediaQuery("(max-width: 1000px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <div className="container">
-      <div className="main-layout">
-        <div className="content-side">
-          <header className="header">
-            <h1>Justin Li</h1>
-          </header>
+      <div className="content-side">
+        <header className="header">
+          <h1>Justin Li</h1>
+        </header>
 
-          <main className="grid">
-            <section className="section about">
-              <p>
-                Welcome to my website! I'm currently studying computer science at the University of
-                British Columbia. My technical interests lie in AI and decentralized systems. In my
-                free time, I like to produce music, play tennis, and invest in stocks. Feel free to
-                message me on LinkedIn!
-              </p>
-            </section>
+        <main className="grid">
+          <section className="section about">
+            <p>
+              Welcome to my website! I'm currently studying computer science at the University of
+              British Columbia. My technical interests lie in AI and decentralized systems. In my
+              free time, I like to produce music, play tennis, and invest in stocks. Feel free to
+              message me on LinkedIn!
+            </p>
+          </section>
 
-            <section className="section">
-              <h2>Experience</h2>
-              <div className={experienceStyles.list}>
-                {experiences.map((experience) => (
-                  <ExperienceCard
-                    key={`${experience.company}-${experience.role}`}
-                    {...experience}
-                  />
-                ))}
-              </div>
-            </section>
-            <section className="section">
-              <h2>Links</h2>
-              <div className="link-list">
-                <a
-                  href="https://github.com/justinli34"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/justinlibc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedin />
-                </a>
-                <a
-                  href="https://www.youtube.com/@justinli34"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                >
-                  <FaYoutube />
-                </a>
-              </div>
-            </section>
-          </main>
-        </div>
+          <section className="section">
+            <h2>Experience</h2>
+            <div className={experienceStyles.list}>
+              {experiences.map((experience) => (
+                <ExperienceCard key={`${experience.company}-${experience.role}`} {...experience} />
+              ))}
+            </div>
+          </section>
 
-        <div className="animation-side">{!isMobile && <Animation />}</div>
+          <section className="section">
+            <h2>Links</h2>
+            <div className="link-list">
+              <a
+                href="https://github.com/justinli34"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/justinlibc"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://www.youtube.com/@justinli34"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
+            </div>
+          </section>
+        </main>
       </div>
+
+      <div className="animation-side">{!isMobile && <Animation />}</div>
     </div>
   );
 }
