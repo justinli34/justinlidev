@@ -45,3 +45,10 @@
 .post strong {
   color: var(--color-text-primary);
 }
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 1.5rem;
+    max-width: 600px;
+  }
+}
