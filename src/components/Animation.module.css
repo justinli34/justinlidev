@@ -1,8 +1,5 @@
-.container {
+.canvas {
   width: 750px;
   height: 750px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
 }

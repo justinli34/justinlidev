@@ -3,11 +3,9 @@ import styles from "./Animation.module.css";
 
 const NUM_POINTS = 10000;
 const HIT_RADIUS = 25;
-const HIT_CHANCE = 1;
 const IMPULSE_STRENGTH = 5;
 const FRICTION = 0.6;
-const SPRING_STRENGTH = 0.008;
-const TANGENTIAL_RATIO = 0.8;
+const SPRING_STRENGTH = 0.01;
 
 type Particle = { dx: number; dy: number; vx: number; vy: number };
 
@@ -48,21 +46,19 @@ function handleMouseInteraction(
     const seed = Math.sin(i * 12.9898 + t * 78.233) * 43758.5453;
     const rand = seed - Math.floor(seed);
 
-    if (rand < HIT_CHANCE) {
-      const radialDx = dx / dist;
-      const radialDy = dy / dist;
-      const tangentSign = (i % 2 === 0 ? 1 : -1) * (1 + Math.sin(i * 0.1) * 0.5);
-      const tangentialDx = (-dy / dist) * TANGENTIAL_RATIO * tangentSign;
-      const tangentialDy = (dx / dist) * TANGENTIAL_RATIO * tangentSign;
-      const impulse = IMPULSE_STRENGTH * scale * (0.5 + rand);
+    const radialDx = dx / dist;
+    const radialDy = dy / dist;
+    const tangentSign = (i % 2 === 0 ? 1 : -1) * (1 + Math.sin(i * 0.1) * 0.5);
+    const tangentialDx = (-dy / dist) * tangentSign;
+    const tangentialDy = (dx / dist) * tangentSign;
+    const impulse = IMPULSE_STRENGTH * scale * (0.5 + rand);
 
-      particles.set(i, {
-        dx: 0,
-        dy: 0,
-        vx: (radialDx + tangentialDx) * impulse,
-        vy: (radialDy + tangentialDy) * impulse,
-      });
-    }
+    particles.set(i, {
+      dx: 0,
+      dy: 0,
+      vx: (radialDx + tangentialDx) * impulse,
+      vy: (radialDy + tangentialDy) * impulse,
+    });
   }
 }
 
@@ -93,14 +89,12 @@ function updateParticlePhysics(
 
 export default function Animation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const mousePosRef = useRef<{ x: number; y: number } | null>(null);
   const particlesRef = useRef<Map<number, Particle>>(new Map());
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const container = containerRef.current;
-    if (!canvas || !container) return;
+    if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -109,30 +103,13 @@ export default function Animation() {
     const bgColor = styles.getPropertyValue("--color-bg").trim();
     const dotsColor = styles.getPropertyValue("--color-animation-dots").trim();
 
-    let dpr = window.devicePixelRatio || 1;
-
-    const updateCanvasSize = () => {
-      const rect = container.getBoundingClientRect();
-      const size = Math.min(rect.width, rect.height);
-      dpr = window.devicePixelRatio || 1;
-
-      // Set the canvas internal resolution to match device pixels
-      canvas.width = size * dpr;
-      canvas.height = size * dpr;
-
-      // Keep the display size the same via CSS
-      canvas.style.width = `${size}px`;
-      canvas.style.height = `${size}px`;
-    };
-
-    updateCanvasSize();
-    const resizeObserver = new ResizeObserver(updateCanvasSize);
-    resizeObserver.observe(container);
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = canvas.clientWidth * dpr;
+    canvas.height = canvas.clientHeight * dpr;
 
     let t = 0;
     let animationId: number;
 
-    // Mouse tracking for dispersion effect
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       mousePosRef.current = {
@@ -189,15 +166,10 @@ export default function Animation() {
 
     return () => {
       cancelAnimationFrame(animationId);
-      resizeObserver.disconnect();
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
-  return (
-    <div ref={containerRef} className={styles.container}>
-      <canvas ref={canvasRef} />
-    </div>
-  );
+  return <canvas ref={canvasRef} className={styles.canvas} />;
 }
