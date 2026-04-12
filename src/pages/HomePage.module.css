@@ -65,12 +65,6 @@
   text-wrap: pretty;
 }
 
-.experienceList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
 .blogList {
   display: flex;
   flex-direction: column;
