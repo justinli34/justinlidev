@@ -21,8 +21,8 @@ function calculateBasePosition(i: number, t: number, scale: number) {
   const angle = d - t;
 
   return {
-    x: (q + 30 * Math.cos(angle) + 200) * scale,
-    y: (q * Math.sin(angle) + d * 39 - 220) * scale,
+    x: (q + 30 * Math.cos(angle) + 80) * scale,
+    y: (q * Math.sin(angle) + d * 39 - 275) * scale,
   };
 }
 
@@ -128,7 +128,7 @@ export default function Animation() {
     function draw() {
       if (!canvas || !ctx) return;
 
-      const scale = canvas.width / 400;
+      const scale = canvas.width / 160;
       const particles = particlesRef.current;
       const mousePos = mousePosRef.current;
       const radius = HIT_RADIUS * scale;

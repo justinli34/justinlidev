@@ -42,7 +42,7 @@ export default function HomePage() {
         </main>
       </div>
 
-      <div className={styles.animationSide}>{!isMobile && <Animation />}</div>
+      {!isMobile && <Animation />}
 
       <Footer />
     </div>
