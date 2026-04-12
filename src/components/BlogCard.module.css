@@ -1,11 +1,11 @@
 .card {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.5rem 0.6rem;
   color: inherit;
   text-decoration: none;
   border-radius: 8px;
-  margin: 0 -0.5rem;
+  margin: 0 -0.6rem;
 }
 
 .header {
