@@ -21,7 +21,8 @@ export default function HomePage() {
               Welcome to my website! I'm a CS student at UBC and software developer based in
               Vancouver. I'm interested in the applications of AI, as well as decentralized systems
               and how they can create fairer societies. This summer, I'll be interning at Amazon.
-              Feel free to message me on LinkedIn!
+              Outside of coding, I like to produce music - check out my YouTube! Feel free to
+              message me on LinkedIn!
             </p>
           </section>
 
