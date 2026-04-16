@@ -9,9 +9,8 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check",
     "preview": "vite preview",
-    "check": "tsc --noEmit && oxlint && oxfmt --check"
+    "check": "tsc --noEmit && oxlint"
   },
   "dependencies": {
     "react": "^19.2.4",

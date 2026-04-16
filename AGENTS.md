@@ -6,25 +6,33 @@ This repo contains a personal website built with TypeScript 6, React 19, React R
 
 This project uses `pnpm` as its package manager.
 
-To add a new dependency, use:
+## Scripts
+
+Add dependency:
 
 ```bash
 pnpm add <package-name>
 ```
 
-To add a development dependency, use:
+Add development dependency:
 
 ```bash
 pnpm add -D <package-name>
 ```
 
-To run lint, format, and type checks, use:
+Format files:
+
+```bash
+pnpm fmt
+```
+
+Run type checking and linting:
 
 ```bash
 pnpm check
 ```
 
-To build the project, use:
+Build the project:
 
 ```bash
 pnpm build
