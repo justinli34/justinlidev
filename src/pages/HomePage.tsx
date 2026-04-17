@@ -22,7 +22,7 @@ export default function HomePage() {
               Vancouver. I'm interested in the applications of AI, as well as decentralized systems
               and how they can create fairer societies. This summer, I'll be interning at Amazon.
               Outside of coding, I like to produce music - check out my YouTube! Feel free to
-              message me on LinkedIn!
+              message me on LinkedIn or email me at justin@justinli.dev.
             </p>
           </section>
 
