@@ -5,7 +5,7 @@
   --color-text-primary: #e0e0e0;
   --color-text-secondary: #aaaaaa;
   --color-text-muted: #777777;
-  --color-border: #77777740;
+  --color-border: #77777780;
   --color-dim: #202020;
   --color-animation-dots: color-mix(in srgb, var(--color-text-primary) 38%, transparent);
 
