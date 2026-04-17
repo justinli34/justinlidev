@@ -30,13 +30,7 @@ export default function HomePage() {
             <h2>Blog</h2>
             <div className={styles.blogList}>
               {blogPosts.map((post) => (
-                <BlogCard
-                  key={post.slug}
-                  date={post.date}
-                  slug={post.slug}
-                  summary={post.summary}
-                  title={post.title}
-                />
+                <BlogCard key={post.slug} date={post.date} slug={post.slug} title={post.title} />
               ))}
             </div>
           </section>

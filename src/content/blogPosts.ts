@@ -1,4 +1,4 @@
-import type { BlogPostMetadata } from "./blogPostMetadata";
+import type { BlogPostMetadata } from "../types/blog";
 
 type BlogPostModule = {
   default: () => React.JSX.Element;

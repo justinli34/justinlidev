@@ -1,4 +1,4 @@
-import type { BlogPostMetadata } from "../content/blogPostMetadata";
+import type { BlogPostMetadata } from "./blog";
 
 declare module "*.mdx" {
   export const metadata: BlogPostMetadata;

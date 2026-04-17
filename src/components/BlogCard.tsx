@@ -1,14 +1,8 @@
 import { Link } from "react-router";
+import { type BlogPostMetadata } from "../types/blog";
 import styles from "./BlogCard.module.css";
 
-type BlogCardProps = {
-  date: string;
-  slug: string;
-  summary: string;
-  title: string;
-};
-
-export default function BlogCard({ date, slug, summary, title }: BlogCardProps) {
+export default function BlogCard({ date, slug, title }: BlogPostMetadata) {
   return (
     <article>
       <Link to={`/blog/${slug}`} className={styles.card}>
@@ -16,7 +10,6 @@ export default function BlogCard({ date, slug, summary, title }: BlogCardProps) 
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.date}>{date}</p>
         </div>
-        <p className={styles.summary}>{summary}</p>
       </Link>
     </article>
   );
