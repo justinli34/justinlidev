@@ -1,19 +1,24 @@
-import HelloWorldPost, { metadata as helloWorldMetadata } from "./blog/hello-world.mdx";
+import type { BlogPostMetadata } from "./blogPostMetadata";
 
-export type BlogPost = {
-  slug: string;
-  title: string;
-  date: string;
-  summary: string;
+type BlogPostModule = {
+  default: () => React.JSX.Element;
+  metadata: BlogPostMetadata;
+};
+
+export type BlogPost = BlogPostMetadata & {
   Content: () => React.JSX.Element;
 };
 
-export const blogPosts: BlogPost[] = [
-  {
-    ...helloWorldMetadata,
-    Content: HelloWorldPost,
-  },
-];
+const blogPostModules = import.meta.glob<BlogPostModule>("./blog/*.mdx", {
+  eager: true,
+});
+
+export const blogPosts: BlogPost[] = Object.values(blogPostModules)
+  .map(({ default: Content, metadata }) => ({
+    ...metadata,
+    Content,
+  }))
+  .sort((left, right) => new Date(right.date).getTime() - new Date(left.date).getTime());
 
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
