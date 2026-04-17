@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
 :root {
   --color-bg: #0a0a0a;
   --color-text-primary: #e0e0e0;
@@ -7,7 +9,7 @@
   --color-dim: #202020;
   --color-animation-dots: color-mix(in srgb, var(--color-text-primary) 38%, transparent);
 
-  font-family: "Geist Variable", sans-serif;
+  font-family: "Geist", sans-serif;
   line-height: 1.5;
   font-size: 15px;
   color: var(--color-text-primary);

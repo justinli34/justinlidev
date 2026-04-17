@@ -13,7 +13,6 @@
     "check": "tsc --noEmit && oxlint"
   },
   "dependencies": {
-    "@fontsource-variable/geist": "^5.2.8",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "^7.14.0"
