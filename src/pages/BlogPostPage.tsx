@@ -14,11 +14,13 @@ export default function BlogPostPage() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.topStrip}>
+        <Link className={styles.homeLink} to="/">
+          Home
+        </Link>
+      </div>
       <section className="section">
         <div className={styles.header}>
-          <Link to="/" className={styles.backLink}>
-            ← Home
-          </Link>
           <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.date}>{post.date}</p>
         </div>

@@ -7,20 +7,29 @@
   padding: 1.5rem 4rem;
 }
 
+.topStrip {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.homeLink {
+  color: var(--color-text-secondary);
+}
+
+.homeLink:hover {
+  color: var(--color-text-primary);
+}
+
 .header {
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
-}
-
-.backLink {
-  width: fit-content;
-  padding-bottom: 1rem;
-  color: var(--color-text-secondary);
-}
-
-.backLink:hover {
-  color: var(--color-text-primary);
 }
 
 .title {
