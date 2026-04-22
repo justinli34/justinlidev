@@ -6,7 +6,7 @@ This repo contains a personal website built with TypeScript 6, React 19, React R
 
 This project uses `pnpm` as its package manager.
 
-## Scripts
+### Scripts
 
 Add dependency:
 
@@ -37,6 +37,8 @@ Build the project:
 ```bash
 pnpm build
 ```
+
+Do not start the development server.
 
 ## UI Design
 
