@@ -1,6 +1,5 @@
 import { Link, Navigate, useParams } from "react-router";
 import { getBlogPost } from "../content/blogPosts";
-import Footer from "../components/Footer";
 import styles from "./BlogPostPage.module.css";
 
 export default function BlogPostPage() {
@@ -29,7 +28,6 @@ export default function BlogPostPage() {
           <Content />
         </article>
       </section>
-      <Footer />
     </div>
   );
 }

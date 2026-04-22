@@ -1,24 +1,42 @@
 import BlogCard from "../components/BlogCard";
-import Footer from "../components/Footer";
 import { blogPosts } from "../content/blogPosts";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
     <div className={styles.container}>
-      <div className={styles.contentSide}>
+      <div className={styles.content}>
         <header className={styles.header}>
           <h1>Justin Li</h1>
         </header>
 
-        <main className={styles.grid}>
-          <section className={styles.section + " " + styles.about}>
+        <main className={styles.main}>
+          <section className={`${styles.section} ${styles.about}`}>
             <p>
-              Welcome to my website! I'm a CS student at UBC and software developer based in
-              Vancouver. I'm interested in the applications of AI, as well as decentralized systems
-              and how they can create fairer societies. This summer, I'll be interning at Amazon.
-              Outside of coding, I like to produce music - check out my YouTube! Feel free to
-              message me on LinkedIn or email me at justin@justinli.dev.
+              Hi! I'm a CS student at UBC and software developer based in Vancouver. I'm interested
+              in AI, decentralized systems, and building software that supports a fairer society.
+              This summer, I'll be interning at Amazon. Outside of coding, I like to produce music.
+              You can find me on{" "}
+              <a href="https://github.com/justinli34" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+              ,{" "}
+              <a
+                href="https://www.linkedin.com/in/justinlibc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              , and{" "}
+              <a
+                href="https://www.youtube.com/@justinli34"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube
+              </a>
+              , or email me at <a href="mailto:justin@justinli.dev">justin@justinli.dev</a>.
             </p>
           </section>
 
@@ -32,8 +50,6 @@ export default function HomePage() {
           </section>
         </main>
       </div>
-
-      <Footer />
     </div>
   );
 }
