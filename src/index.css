@@ -2,7 +2,7 @@
 
 :root {
   --color-bg: #0a0a0a;
-  --color-text-primary: #e0e0e0;
+  --color-text-primary: #d4d4d4;
   --color-text-secondary: #aaaaaa;
   --color-text-muted: #777777;
   --color-border: #77777780;
@@ -29,4 +29,9 @@
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::selection {
+  color: var(--color-text-primary);
+  background-color: var(--color-border);
 }

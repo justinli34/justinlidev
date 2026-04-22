@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from "react-router";
 import { getBlogPost } from "../content/blogPosts";
+import Footer from "../components/Footer";
 import styles from "./BlogPostPage.module.css";
 
 export default function BlogPostPage() {
@@ -19,7 +20,7 @@ export default function BlogPostPage() {
           Justin Li
         </Link>
       </div>
-      <section className="section">
+      <section className={styles.content}>
         <div className={styles.header}>
           <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.date}>{post.date}</p>
@@ -28,6 +29,7 @@ export default function BlogPostPage() {
           <Content />
         </article>
       </section>
+      <Footer />
     </div>
   );
 }
