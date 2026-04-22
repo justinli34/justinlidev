@@ -19,9 +19,9 @@ export default function BlogPostPage() {
           Justin Li
         </Link>
       </div>
-      <section className={styles.content}>
+      <section>
         <div className={styles.header}>
-          <h1 className={styles.title}>{post.title}</h1>
+          <h1>{post.title}</h1>
           <p className={styles.date}>{post.date}</p>
         </div>
         <article className={styles.post}>

@@ -1,24 +1,16 @@
 .container {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  width: 100%;
+  display: grid;
+  align-content: center;
+  gap: 1rem;
   max-width: 600px;
   margin: 0 auto;
-  padding: 1.5rem;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
+  padding: 2em;
 }
 
 .header h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--color-text-primary);
 }
 
 .main {
@@ -27,13 +19,13 @@
   gap: 2rem;
 }
 
-.section {
+.blog {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.section h2 {
+.blog h2 {
   font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -41,23 +33,7 @@
   color: var(--color-text-muted);
 }
 
-.about p {
+.about {
   color: var(--color-text-secondary);
   text-wrap: pretty;
-}
-
-.about a {
-  color: var(--color-text-primary);
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-border);
-  text-underline-offset: 0.2em;
-}
-
-.about a:hover {
-  text-decoration-color: currentColor;
-}
-
-.blogList {
-  display: flex;
-  flex-direction: column;
 }

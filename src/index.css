@@ -7,7 +7,6 @@
   --color-text-muted: #777777;
   --color-border: #77777780;
   --color-dim: #202020;
-  --color-animation-dots: color-mix(in srgb, var(--color-text-primary) 38%, transparent);
 
   font-family: "Geist", sans-serif;
   line-height: 1.5;
@@ -29,6 +28,17 @@
 a {
   color: inherit;
   text-decoration: none;
+}
+
+p a {
+  color: var(--color-text-primary);
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 0.2em;
+}
+
+p a:hover {
+  text-decoration-color: currentColor;
 }
 
 ::selection {

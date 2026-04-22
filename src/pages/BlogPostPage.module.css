@@ -1,10 +1,7 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 4rem;
+  padding: 2rem;
 }
 
 .topStrip {
@@ -24,25 +21,14 @@
   color: var(--color-text-primary);
 }
 
-.content {
-  flex: 1;
-}
-
 .header {
-  display: flex;
-  flex-direction: column;
   padding-top: 4rem;
   padding-bottom: 2rem;
-}
-
-.title {
-  color: var(--color-text-primary);
   font-family: "Uncial Antiqua", serif;
 }
 
 .date {
   color: var(--color-text-secondary);
-  font-family: "Uncial Antiqua", serif;
   font-size: 1.1rem;
 }
 
@@ -59,11 +45,4 @@
 .post h4,
 .post strong {
   color: var(--color-text-primary);
-}
-
-@media (max-width: 1000px) {
-  .container {
-    padding: 1.5rem;
-    max-width: 600px;
-  }
 }

@@ -29,7 +29,3 @@
 .card:hover {
   background-color: var(--color-dim);
 }
-
-.summary {
-  color: var(--color-text-secondary);
-}
