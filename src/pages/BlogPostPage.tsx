@@ -16,7 +16,7 @@ export default function BlogPostPage() {
     <div className={styles.container}>
       <div className={styles.topStrip}>
         <Link className={styles.homeLink} to="/">
-          Home
+          Justin Li
         </Link>
       </div>
       <section className="section">
