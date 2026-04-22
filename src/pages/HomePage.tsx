@@ -1,13 +1,9 @@
-import Animation from "../components/Animation";
 import BlogCard from "../components/BlogCard";
 import Footer from "../components/Footer";
 import { blogPosts } from "../content/blogPosts";
-import useMediaQuery from "../hooks/useMediaQuery";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
-  const isMobile = useMediaQuery("(max-width: 1000px)");
-
   return (
     <div className={styles.container}>
       <div className={styles.contentSide}>
@@ -36,8 +32,6 @@ export default function HomePage() {
           </section>
         </main>
       </div>
-
-      {!isMobile && <Animation />}
 
       <Footer />
     </div>
