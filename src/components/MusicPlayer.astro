@@ -5,12 +5,11 @@ type Props = {
 };
 
 const { src, title } = Astro.props;
-const publicPath = src.startsWith("/") ? src : `/${src}`;
 ---
 
 <figure class="player">
   <figcaption class="title">{title}</figcaption>
-  <audio class="audio" controls preload="metadata" src={publicPath}
+  <audio class="audio" controls preload="metadata" src={src}
   ></audio>
 </figure>
 
@@ -35,7 +34,6 @@ const publicPath = src.startsWith("/") ? src : `/${src}`;
     width: 100%;
     min-height: 40px;
     background-color: var(--color-bg);
-    color-scheme: dark;
   }
 
   .audio::-webkit-media-controls-panel {

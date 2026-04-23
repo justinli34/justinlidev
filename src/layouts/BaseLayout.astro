@@ -26,10 +26,17 @@ const structuredDataJson = JSON.stringify(structuredData);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Uncial+Antiqua&display=swap"
+    />
     {description ? <meta name="description" content={description} /> : null}
     <link rel="canonical" href={canonicalHref} />
     <link rel="alternate" type="application/rss+xml" title="Justin Li RSS Feed" href={rssHref} />
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={siteTitle} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalHref} />

@@ -1,7 +1,8 @@
+import type { APIRoute } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
-export async function GET(context: { site?: URL }) {
+export const GET: APIRoute = async ({ site }) => {
   const posts = (await getCollection("blog")).sort(
     (left, right) => right.data.date.getTime() - left.data.date.getTime(),
   );
@@ -15,6 +16,6 @@ export async function GET(context: { site?: URL }) {
       pubDate: post.data.date,
       title: post.data.title,
     })),
-    site: context.site ?? "https://justinli.dev",
+    site: site ?? "https://justinli.dev",
   });
-}
+};
