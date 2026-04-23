@@ -1,6 +1,6 @@
 # Agent Instructions
 
-This repo contains a personal website built with TypeScript 6, React 19, React Router 7, and Vite 8.
+This repo contains a personal website built with Astro.
 
 ## Package Manager
 

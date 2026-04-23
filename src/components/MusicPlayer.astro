@@ -1,0 +1,17 @@
+---
+import styles from "./MusicPlayer.module.css";
+
+type Props = {
+  src: string;
+  title: string;
+};
+
+const { src, title } = Astro.props;
+const publicPath = src.startsWith("/") ? src : `/${src}`;
+---
+
+<figure class={styles.player}>
+  <figcaption class={styles.title}>{title}</figcaption>
+  <audio class={styles.audio} controls preload="metadata" src={publicPath}
+  ></audio>
+</figure>

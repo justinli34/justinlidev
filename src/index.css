@@ -41,6 +41,11 @@ p a:hover {
   text-decoration-color: currentColor;
 }
 
+a:focus-visible {
+  outline: 1px solid var(--color-text-secondary);
+  outline-offset: 2px;
+}
+
 ::selection {
   color: var(--color-text-primary);
   background-color: var(--color-border);

@@ -29,3 +29,7 @@
 .card:hover {
   background-color: var(--color-dim);
 }
+
+.card:focus-visible {
+  background-color: var(--color-dim);
+}

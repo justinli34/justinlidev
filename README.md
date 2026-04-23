@@ -1,8 +1,6 @@
 # Personal Website
 
-A modern, responsive personal website built with React, TypeScript, and Vite.
-
-Check it out: [justinli.dev](https://justinli.dev)
+A personal website built with Astro.
 
 ## Installation
 

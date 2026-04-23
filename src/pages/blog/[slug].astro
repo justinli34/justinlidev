@@ -1,0 +1,64 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import styles from "../BlogPostPage.module.css";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+};
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const formattedDate = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(post.data.date);
+const publishedTime = post.data.date.toISOString();
+const articleUrl = Astro.url.toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  author: {
+    "@type": "Person",
+    name: "Justin Li",
+    url: Astro.site ? Astro.site.toString() : "https://justinli.dev",
+  },
+  datePublished: publishedTime,
+  description: post.data.description,
+  headline: post.data.title,
+  mainEntityOfPage: articleUrl,
+  url: articleUrl,
+};
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  publishedTime={publishedTime}
+  structuredData={structuredData}
+>
+  <div class={styles.container}>
+    <section>
+      <div class={styles.header}>
+        <h1>{post.data.title}</h1>
+        <time class={styles.date} datetime={publishedTime}>
+          {formattedDate}
+        </time>
+      </div>
+      <article class={styles.post}>
+        <Content />
+      </article>
+    </section>
+  </div>
+</BaseLayout>

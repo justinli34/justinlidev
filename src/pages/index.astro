@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "../components/BlogCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import styles from "./HomePage.module.css";
+
+const posts = (await getCollection("blog")).sort(
+  (left, right) => right.data.date.getTime() - left.data.date.getTime(),
+);
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const homeDescription =
+  "Justin Li is a Vancouver-based software developer and UBC computer science student writing about AI, decentralized systems, software, and music.";
+
+const personStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  email: "mailto:justin@justinli.dev",
+  jobTitle: "Software Developer",
+  name: "Justin Li",
+  sameAs: [
+    "https://github.com/justinli34",
+    "https://www.linkedin.com/in/justinlibc",
+    "https://www.youtube.com/@justinli34",
+  ],
+  url: Astro.url.toString(),
+};
+---
+
+<BaseLayout
+  title="Justin Li"
+  description={homeDescription}
+  ogType="website"
+  publishedTime={null}
+  structuredData={personStructuredData}
+>
+  <div class={styles.container}>
+    <header class={styles.header}>
+      <h1>Justin Li</h1>
+      <h2>Software Developer</h2>
+    </header>
+
+    <main class={styles.main}>
+      <section class={styles.about}>
+        <p>
+          Hi! I'm a CS student at UBC and software developer based in Vancouver.
+          I'm interested in AI, decentralized systems, and building software
+          that supports a fairer society. This summer, I'll be interning at
+          Amazon. Outside of coding, I like to produce music. You can find me on{" "}
+          <a
+            href="https://github.com/justinli34"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >,{" "}
+          <a
+            href="https://www.linkedin.com/in/justinlibc"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >, and{" "}
+          <a
+            href="https://www.youtube.com/@justinli34"
+            target="_blank"
+            rel="noopener noreferrer"
+            >YouTube</a
+          >, or email me at{" "}
+          <a href="mailto:justin@justinli.dev">justin@justinli.dev</a>.
+        </p>
+      </section>
+
+      <section class={styles.blog}>
+        <h2>Blog</h2>
+        {
+          posts.map((post) => (
+            <BlogCard
+              date={dateFormatter.format(post.data.date)}
+              href={`/blog/${post.id}`}
+              title={post.data.title}
+            />
+          ))
+        }
+      </section>
+    </main>
+  </div>
+</BaseLayout>
