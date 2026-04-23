@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Uncial+Antiqua&display=swap");
 
 :root {
-  --color-bg: #0a0a0a;
-  --color-text-primary: #d4d4d4;
-  --color-text-secondary: #aaaaaa;
-  --color-text-muted: #777777;
-  --color-border: #77777780;
-  --color-dim: #202020;
+  --color-bg: oklch(0.1 0 0);
+  --color-text-primary: oklch(0.9 0 0);
+  --color-text-secondary: oklch(0.75 0 0);
+  --color-text-muted: oklch(0.6 0 0);
+  --color-border: oklch(0.35 0 0);
+  --color-dim: oklch(0.25 0 0);
 
   font-family: "Geist", sans-serif;
   line-height: 1.5;
