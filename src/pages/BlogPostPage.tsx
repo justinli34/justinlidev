@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from "react-router";
+import { Navigate, useParams } from "react-router";
 import { getBlogPost } from "../content/blogPosts";
 import styles from "./BlogPostPage.module.css";
 
@@ -14,11 +14,6 @@ export default function BlogPostPage() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.topStrip}>
-        <Link className={styles.homeLink} to="/">
-          Justin Li
-        </Link>
-      </div>
       <section>
         <div className={styles.header}>
           <h1>{post.title}</h1>

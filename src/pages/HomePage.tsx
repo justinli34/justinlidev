@@ -7,6 +7,7 @@ export default function HomePage() {
     <div className={styles.container}>
       <header className={styles.header}>
         <h1>Justin Li</h1>
+        <h2>Software Developer</h2>
       </header>
 
       <main className={styles.main}>
