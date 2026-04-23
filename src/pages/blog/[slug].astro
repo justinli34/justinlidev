@@ -1,7 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import styles from "../BlogPostPage.module.css";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -48,17 +47,51 @@ const structuredData = {
   publishedTime={publishedTime}
   structuredData={structuredData}
 >
-  <div class={styles.container}>
+  <div class="container">
     <section>
-      <div class={styles.header}>
+      <div class="header">
         <h1>{post.data.title}</h1>
-        <time class={styles.date} datetime={publishedTime}>
+        <time class="date" datetime={publishedTime}>
           {formattedDate}
         </time>
       </div>
-      <article class={styles.post}>
+      <article class="post">
         <Content />
       </article>
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 5rem;
+  }
+
+  .header {
+    padding-bottom: 2rem;
+    font-family: "Uncial Antiqua", serif;
+  }
+
+  .date {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+  }
+
+  .post {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .post :global(h1),
+  .post :global(h2),
+  .post :global(h3),
+  .post :global(h4),
+  .post :global(strong) {
+    color: var(--color-text-primary);
+  }
+</style>

@@ -1,6 +1,4 @@
 ---
-import styles from "./BlogCard.module.css";
-
 type Props = {
   date: string;
   href: string;
@@ -11,10 +9,45 @@ const { date, href, title } = Astro.props;
 ---
 
 <article>
-  <a href={href} class={styles.card}>
-    <div class={styles.header}>
-      <h3 class={styles.title}>{title}</h3>
-      <p class={styles.date}>{date}</p>
+  <a href={href} class="card">
+    <div class="header">
+      <h3 class="title">{title}</h3>
+      <p class="date">{date}</p>
     </div>
   </a>
 </article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.6rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 0 -0.6rem;
+  }
+
+  .header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .date {
+    color: var(--color-text-muted);
+    margin: 0 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .card:hover,
+  .card:focus-visible {
+    background-color: var(--color-dim);
+  }
+</style>

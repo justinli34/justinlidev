@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BlogCard from "../components/BlogCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import styles from "./HomePage.module.css";
 
 const posts = (await getCollection("blog")).sort(
   (left, right) => right.data.date.getTime() - left.data.date.getTime(),
@@ -39,14 +38,14 @@ const personStructuredData = {
   publishedTime={null}
   structuredData={personStructuredData}
 >
-  <div class={styles.container}>
-    <header class={styles.header}>
+  <div class="container">
+    <header class="header">
       <h1>Justin Li</h1>
       <h2>Software Developer</h2>
     </header>
 
-    <main class={styles.main}>
-      <section class={styles.about}>
+    <main class="main">
+      <section class="about">
         <p>
           Hi! I'm a CS student at UBC and software developer based in Vancouver.
           I'm interested in AI, decentralized systems, and building software
@@ -74,7 +73,7 @@ const personStructuredData = {
         </p>
       </section>
 
-      <section class={styles.blog}>
+      <section class="blog">
         <h2>Blog</h2>
         {
           posts.map((post) => (
@@ -89,3 +88,52 @@ const personStructuredData = {
     </main>
   </div>
 </BaseLayout>
+
+<style>
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 5rem;
+  }
+
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  .header h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .blog {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .blog h2 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .about {
+    color: var(--color-text-secondary);
+    text-wrap: pretty;
+  }
+</style>

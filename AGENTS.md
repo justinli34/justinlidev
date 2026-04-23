@@ -57,8 +57,8 @@ Minimal, quiet, and content-first.
 - Prefer the simplest implementation that fits the current codebase.
 - Keep components small and direct; avoid abstractions until they clearly remove repeated logic.
 - Follow existing naming, file structure, and composition patterns before inventing new ones.
-- Use CSS Modules for component-specific styling and keep styles colocated with the component.
-- Prefer straightforward React and TypeScript over clever helpers, custom hooks, or indirection.
+- Use scoped `<style>` blocks in `.astro` files for component- and page-specific styling. Keep shared global styles in a single imported stylesheet only when they truly need to be global.
+- Prefer straightforward Astro and TypeScript over clever helpers, custom hooks, or indirection.
 - Add dependencies only when they materially simplify the solution.
 - Keep props, state, and effects minimal; derive values instead of storing redundant state.
 - Avoid overly defensive code: do not add guards or fallbacks for impossible or unsupported states.
