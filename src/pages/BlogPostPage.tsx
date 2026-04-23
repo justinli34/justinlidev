@@ -13,16 +13,19 @@ export default function BlogPostPage() {
   const { Content } = post;
 
   return (
-    <div className={styles.container}>
-      <section>
-        <div className={styles.header}>
-          <h1>{post.title}</h1>
-          <p className={styles.date}>{post.date}</p>
-        </div>
-        <article className={styles.post}>
-          <Content />
-        </article>
-      </section>
-    </div>
+    <>
+      <title>{`Justin Li - ${post.title}`}</title>
+      <div className={styles.container}>
+        <section>
+          <div className={styles.header}>
+            <h1>{post.title}</h1>
+            <p className={styles.date}>{post.date}</p>
+          </div>
+          <article className={styles.post}>
+            <Content />
+          </article>
+        </section>
+      </div>
+    </>
   );
 }
